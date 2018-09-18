@@ -24,7 +24,6 @@ public class CarreraView {
 		String sql = "Insert into carrera (JefeDeCarrera, Nombre )" + "values(?,?)";
 		conexion.consulta(sql);
 		conexion.getSentencia().setString(1, carrera.getJefeDeCarrera());
-
 		conexion.getSentencia().setString(2, carrera.getNombreCarrera());
 
 		conexion.modificacion();			

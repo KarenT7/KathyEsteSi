@@ -19,10 +19,10 @@ public class TransporteView {
 		this.scanner = scanner;
 	}
 
-	public void addVehiculo() {
+	public void addVehiculo() throws SQLException {
 		Transporte vehiculo = RegistroTransporte.ingresarVehiculo(scanner);
 		String sql = "Insert into transporte (CodigoEstudiante, Placa,Marca, Color, Soat) " + "values(?,?,?,?,?)";
-		try {
+	//	try {
 			conexion.consulta(sql);
 			//conexion.getSentencia().setInt(1, vehiculo.getCodigoVehiculo());
 			conexion.getSentencia().setInt(1, vehiculo.getCodigoEstudiante());
@@ -31,9 +31,7 @@ public class TransporteView {
 			conexion.getSentencia().setString(4, vehiculo.getColor());
 			conexion.getSentencia().setBoolean(5, vehiculo.isSoat());
 			conexion.modificacion();
-		} catch (SQLException e) {
-			System.out.println(e.getSQLState());
-		}
+		//} catch (SQLException e) {	System.out.println(e.getSQLState());}
 	}
 
 	public void deleteVehiculo() throws SQLException {
