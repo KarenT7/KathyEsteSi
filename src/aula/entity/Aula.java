@@ -25,7 +25,7 @@ public class Aula {
 	public void setIdClase(int idClase) {
 		this.idClase = idClase;
 	}
-
+///////////////////////////////////////////////
 	@Override
 	public String toString() {
 		return "Aula [idAula=" + idAula + ", idClase=" + idClase + "]";

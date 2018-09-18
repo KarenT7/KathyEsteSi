@@ -38,13 +38,16 @@ public class MenuAula {
 				salir = true;
 				break;
 			case 1:
-				aulaV.addAula();
+				try {
+					aulaV.addAula();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				break;
 			case 2:
 				try {
 					aulaV.listarAula();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				break;
@@ -52,7 +55,6 @@ public class MenuAula {
 				try {
 					aulaV.deleteAula();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			

@@ -19,16 +19,13 @@ public class AulaView {
 		this.scanner = scanner;
 	}
 
-	public void addAula() {
+	public void addAula() throws SQLException {
 		Aula aula = RegistroAula.ingresarAula(scanner);
 			String sql = "Insert into aula ( IdClase)" + "values(?)";
-			try {
 			conexion.consulta(sql);
 			conexion.getSentencia().setInt(1, aula.getIdClase());
 			conexion.modificacion();
-			} catch (SQLException e) {
-				System.out.println(e.getSQLState());
-			}
+
 }
 	
 		public void deleteAula() throws SQLException {
