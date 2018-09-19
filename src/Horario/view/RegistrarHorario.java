@@ -13,7 +13,7 @@ public class RegistrarHorario {
 		int codigoHorario=InputTypes.readInt("Ingrese el codigo del horario:", scanner);
 		String paralelo=InputTypes.readString("Paralelo:", scanner);
 		int idClase=InputTypes.readInt("Codigo de identificacion de la clase:", scanner);
-		String modalidad=InputTypes.readString("Modalidad: ", scanner);
+		String modalidad=InputTypes.readString("Modalidad --> Presencial/Virtual/Presencial y Virtual: ", scanner);
 		Date fechaInicio= InputTypes.readDate("Fecha de inicio:", scanner);
 		Date fechaFinal= InputTypes.readDate("Fecha final:", scanner);
 		

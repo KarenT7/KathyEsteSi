@@ -1,13 +1,10 @@
 package semestre.entity;
 
-import java.time.Year;
-import java.util.Date;
-
 public class Semestre {
 	private int idSemestre;
-	private int  modulo;
+	private int modulo;
 	private int anio;
-	
+
 	public Semestre(int idSemestre, int modulo, int anio) {
 		super();
 		this.idSemestre = idSemestre;
@@ -43,21 +40,5 @@ public class Semestre {
 	public String toString() {
 		return "Semestre [idSemestre=" + idSemestre + ", modulo=" + modulo + ", anio=" + anio + "]";
 	}
-/*
-	public boolean equals(Object o) {
-		boolean respuesta = false;
-		if ( o != null) {
-			Semestre semestre = (Semestre) o;
-			if(this.getIdSemestre()==semestre.getIdSemestre()) {
-				respuesta = !respuesta;
-			}
-		}
-		return respuesta;
-	}
-	
-	public int hashCode() {
-		return this.getIdSemestre().hashCode();
-	}
-	*/
 
 }
