@@ -19,4 +19,5 @@ public class RegistroDocente {
 
 		return new Docente(codigoDocente, nombre,apellido,titulacion,seguroMedico, celular, fechaNacimiento);
 	}
+
 }

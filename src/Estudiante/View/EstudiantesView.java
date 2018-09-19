@@ -90,15 +90,15 @@ public class EstudiantesView {
 		sql = "update estudiante set Nombres = ?, Apellidos = ?, Telefono = ?,Direccion = ?,PAA =?,  CI = ?, FechaNacimiento = ? where CodigoEstudiante = ?";
 
 		conexion.consulta(sql);
-		conexion.getSentencia().setInt(1, estudiante.getCodigoEstudiante());
-		conexion.getSentencia().setString(2, estudiante.getNombre());
-		conexion.getSentencia().setString(3, estudiante.getApellido());
-		conexion.getSentencia().setInt(4, estudiante.getTelefono());
-		conexion.getSentencia().setString(5, estudiante.getDireccion());
-		conexion.getSentencia().setBoolean(6, estudiante.isPAA());
-		conexion.getSentencia().setInt(7, estudiante.getCI());
-		conexion.getSentencia().setDate(8, new java.sql.Date(estudiante.getFechaNacimiento().getTime()));
-		
+//		conexion.getSentencia().setInt(, estudiante.getCodigoEstudiante());
+		conexion.getSentencia().setString(1, estudiante.getNombre());
+		conexion.getSentencia().setString(2, estudiante.getApellido());
+		conexion.getSentencia().setInt(5, estudiante.getTelefono());
+		conexion.getSentencia().setString(6, estudiante.getDireccion());
+		conexion.getSentencia().setBoolean(7, estudiante.isPAA());
+		conexion.getSentencia().setInt(3, estudiante.getCI());
+		conexion.getSentencia().setDate(4, new java.sql.Date(estudiante.getFechaNacimiento().getTime()));
+		conexion.getSentencia().setInt(8, estudiante.getCodigoEstudiante());
 
 		conexion.modificacion();
 	}
