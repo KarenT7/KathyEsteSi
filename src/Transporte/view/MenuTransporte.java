@@ -62,6 +62,7 @@ public class MenuTransporte {
 				} catch (VehiculoNoRegistrado e) {
 					e.printStackTrace();
 				}
+				break;
 			}
 		}
 	}

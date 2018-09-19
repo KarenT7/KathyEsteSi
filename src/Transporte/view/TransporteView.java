@@ -2,7 +2,6 @@ package Transporte.view;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.Scanner;
 
 import Transporte.entity.Transporte;
@@ -19,19 +18,22 @@ public class TransporteView {
 		this.scanner = scanner;
 	}
 
-	public void addVehiculo() throws SQLException {
+	public void addVehiculo() {
 		Transporte vehiculo = RegistroTransporte.ingresarVehiculo(scanner);
-		String sql = "Insert into transporte (CodigoEstudiante, Placa,Marca, Color, Soat) " + "values(?,?,?,?,?)";
-	//	try {
+		String sql = "Insert into transporte (CodigoVehiculo, CodigoEstudiante, Placa, Marca, Color, Soat) "
+				+ "values(?,?,?,?,?,?)";
+		try {
 			conexion.consulta(sql);
-			//conexion.getSentencia().setInt(1, vehiculo.getCodigoVehiculo());
-			conexion.getSentencia().setInt(1, vehiculo.getCodigoEstudiante());
-			conexion.getSentencia().setString(2, vehiculo.getPlaca());
-			conexion.getSentencia().setString(3, vehiculo.getMarca());
-			conexion.getSentencia().setString(4, vehiculo.getColor());
-			conexion.getSentencia().setBoolean(5, vehiculo.isSoat());
+			conexion.getSentencia().setInt(1, vehiculo.getCodigoVehiculo());
+			conexion.getSentencia().setInt(2, vehiculo.getCodigoEstudiante());
+			conexion.getSentencia().setString(3, vehiculo.getPlaca());
+			conexion.getSentencia().setString(4, vehiculo.getMarca());
+			conexion.getSentencia().setString(5, vehiculo.getColor());
+			conexion.getSentencia().setBoolean(6, vehiculo.isSoat());
 			conexion.modificacion();
-		//} catch (SQLException e) {	System.out.println(e.getSQLState());}
+		} catch (SQLException e) {
+			e.getSQLState();
+		}
 	}
 
 	public void deleteVehiculo() throws SQLException {
@@ -41,7 +43,6 @@ public class TransporteView {
 		conexion.getSentencia().setInt(1, CodigoVehiculo);
 		conexion.modificacion();
 	}
-	// teamviewer
 
 	public void updateVehiculo() throws SQLException, VehiculoNoRegistrado {
 		ResultSet resultSet;
@@ -75,12 +76,13 @@ public class TransporteView {
 		sql = "update transporte set CodigoEstudiante = ?, Placa = ?, Marca = ?, Color = ?, Soat = ? where CodigoVehiculo = ?";
 
 		conexion.consulta(sql);
-		//conexion.getSentencia().setInt(1, vehiculo.getCodigoVehiculo());
 		conexion.getSentencia().setInt(1, vehiculo.getCodigoEstudiante());
 		conexion.getSentencia().setString(2, vehiculo.getPlaca());
 		conexion.getSentencia().setString(3, vehiculo.getMarca());
 		conexion.getSentencia().setString(4, vehiculo.getColor());
 		conexion.getSentencia().setBoolean(5, vehiculo.isSoat());
+		conexion.getSentencia().setInt(6, vehiculo.getCodigoVehiculo());
+
 		conexion.modificacion();
 	}
 

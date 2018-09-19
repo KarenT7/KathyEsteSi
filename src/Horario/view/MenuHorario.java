@@ -61,7 +61,8 @@ public class MenuHorario {
 					try {
 						horarioView.updateHorario();
 					} catch (NoExisteClaseEnH e) {
-				e.printStackTrace();
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				}
 				break;

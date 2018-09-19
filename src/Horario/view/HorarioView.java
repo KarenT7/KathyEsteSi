@@ -100,6 +100,5 @@ public class HorarioView {
 					resultSet.getDate("FechaFinal"));
 			System.out.println(horario);
 		}
-	
-}
+	}
 }

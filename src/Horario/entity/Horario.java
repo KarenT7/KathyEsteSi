@@ -43,12 +43,11 @@ public class Horario {
 	public void setModalidad(String modalidad) {
 		this.modalidad = modalidad;
 	}
-	public void setFechaInicio(Date fechaInicio)
-	{
-	  this.fechaInicio =fechaInicio;
-	}
 	public Date getFechaInicio() {
 		return fechaInicio;
+	}
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
 	public Date getFechaFinal() {
 		return fechaFinal;
@@ -61,6 +60,5 @@ public class Horario {
 		return "Horario [codigoHorario=" + codigoHorario + ", paralelo=" + paralelo + ", idClase=" + idClase
 				+ ", modalidad=" + modalidad + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + "]";
 	}
-
 
 }

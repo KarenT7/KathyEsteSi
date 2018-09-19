@@ -12,7 +12,7 @@ public class MenuClase {
 		int opcion;
 		while (true) {
 			System.out.println("--------------------------------------");
-			System.out.println("	Ingrese una opcion	: ");
+			System.out.println("    Ingrese una opcion      : ");
 			System.out.println("--------------------------------------");
 			System.out.println("1.Ingresar Clase: ");
 			System.out.println("2.Listar Clase: ");
@@ -53,7 +53,7 @@ public class MenuClase {
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-			  break;
+				break;
 			case 4:
 				try {
 					claseV.updateClase();
@@ -61,7 +61,7 @@ public class MenuClase {
 					System.out.println("No existe clase!");
 				}
 				break;
-			
+
 			}
 		}
 	}
@@ -71,7 +71,7 @@ public class MenuClase {
 
 		while (true) {
 			System.out.println("--------------------------------------");
-			System.out.println("	Ingrese una opcion	: ");
+			System.out.println("    Ingrese una opcion      : ");
 			System.out.println("--------------------------------------");
 			System.out.println("1. Modificar codigo docente");
 			System.out.println("2. Modificar la identificacion del semestre ");

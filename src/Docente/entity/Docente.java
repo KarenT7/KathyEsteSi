@@ -2,14 +2,14 @@ package Docente.entity;
 
 import java.util.Date;
 
-
+//corregir atributos y tipo de datos para fecha 
 public class Docente {
 	private int codigoDocente;
 	private String nombre;
 	private String apellido;
 	private int celular;
 	private Date fechaNacimiento;
-
+//fecha de nacimiento deberia estar en date
 	private String gradoDeTitulacion;
 	private int seguroMedico;
 	public Docente(int codigoDocente, String nombre, String apellido, String gradoDeTitulacion, int seguroMedico, int celular,Date fechaNacimiento) {
