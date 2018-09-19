@@ -18,7 +18,6 @@ public class MenuClase {
 			System.out.println("2.Listar Clase: ");
 			System.out.println("3.Eliminar Clase:");
 			System.out.println("4. Modificar Clase ");
-			// System.out.println("5. Productos por Categoría ");
 			System.out.println("0.Salir");
 			System.out.println();
 
@@ -39,18 +38,12 @@ public class MenuClase {
 				salir = true;
 				break;
 			case 1:
-				try {
-					claseV.addClase();
-				} catch (SQLException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
+				claseV.addClase();
 				break;
 			case 2:
 				try {
 					claseV.listarClase();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				break;
@@ -58,10 +51,9 @@ public class MenuClase {
 				try {
 					claseV.deleteClase();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			
+			  break;
 			case 4:
 				try {
 					claseV.updateClase();
@@ -69,10 +61,7 @@ public class MenuClase {
 					System.out.println("No existe clase!");
 				}
 				break;
-			/*
-			 * case 5:try { claseV.listarClase(); }catch( NoExisteClase e) {
-			 * System.out.println("No existe clase!"); }break;
-			 */
+			
 			}
 		}
 	}

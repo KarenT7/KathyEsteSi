@@ -83,7 +83,7 @@ public class InputTypes {
 
 				break;
 			} catch (java.util.InputMismatchException e) {
-				System.out.println("Debe ingresar true(si la dio) o false(no la dio) segun haya realizado la prueba");
+				System.out.println("Debe ingresar true(si) o false(no)");
 				scanner.nextLine();
 			}
 		}

@@ -20,34 +20,44 @@ public class ClasesView {
 		this.scanner = scanner;
 	}
 
-	public void addClase() throws SQLException {
+	public void addClase()  {
 		Clase clase = RegistroClase.ingresarClase(scanner);
-			String sql = "Insert into clase ( CodigoDocente, IdSemestre, CodigoEstudiante)" + "values(?,?,?)";
-			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, clase.getCodigoDocente());
-			
-			conexion.getSentencia().setInt(2, clase.getIdSemestre());
-			conexion.getSentencia().setInt(3, clase.getCodigoEstudiante());
-			conexion.modificacion();
-			
-}
-	
-		public void deleteClase() throws SQLException {
-			int idClase = InputTypes.readInt("Código identificacion de la clase: ", scanner);
-			String sql = "delete " + "from clase " + "where IdClase = ?";
-			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, idClase);
-			conexion.modificacion();
+		String sql = "Insert into clase ( IdClase,CodigoDocente, IdSemestre, CodigoEstudiante, CodigoHorario ,IdAula)" + "values(?,?,?,?,?,?)";
+		try {
 
+			conexion.consulta(sql);
+			conexion.getSentencia().setInt(1, clase.getIdClase());
+			conexion.getSentencia().setInt(2, clase.getCodigoDocente());
+			conexion.getSentencia().setInt(3, clase.getIdSemestre());
+			conexion.getSentencia().setInt(4, clase.getCodigoEstudiante());
+			conexion.getSentencia().setInt(5, clase.getCodigoHorario());
+			conexion.getSentencia().setInt(6, clase.getIdAula());
+
+			conexion.modificacion();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
-	
+	}
+
+	public void deleteClase() throws SQLException {
+		int idClase = InputTypes.readInt("Código identificacion de la clase: ", scanner);
+		String sql = "delete " + "from clase " + "where IdClase = ?";
+		conexion.consulta(sql);
+		conexion.getSentencia().setInt(1, idClase);
+		conexion.modificacion();
+
+	}
+
+
 	public void updateClase() throws NoExisteClase, SQLException {
 		ResultSet resultSet;
 		Clase clase;
 		int  codigoDocente;
 		int idSemestre;
 		int CodigoEstudiante;
+		int CodigoHorario;
+		int IdAula;
 		int idClase = InputTypes.readInt("Identificacion del Código de la Clase: ", scanner);
 		String sql = "select * from clase where IdClase = ?";
 		conexion.consulta(sql);
@@ -57,7 +67,9 @@ public class ClasesView {
 			codigoDocente = resultSet.getInt("CodigoDocente");
 			idSemestre = resultSet.getInt("IdSemestre");
 			CodigoEstudiante=resultSet.getInt("CodigoEstudiante");
-			clase = new Clase(idClase, codigoDocente , idSemestre, CodigoEstudiante);
+			CodigoHorario = resultSet.getInt("CodigoHorario");
+			IdAula=resultSet.getInt("IdAula");
+			clase = new Clase(idClase, codigoDocente , idSemestre, CodigoEstudiante, CodigoHorario, IdAula);
 		} else {
 			throw new NoExisteClase();
 		}
@@ -65,12 +77,16 @@ public class ClasesView {
 		System.out.println(clase);
 		MenuClase.menuModificar(scanner, clase);
 
-		sql = "update clase set codigoDocente = ?, idSemestre = ? where IdClase = ? , CodigoEstudiante = ?";
+		sql = "update clase set codigoDocente = ?, idSemestre = ?, CodigoEstudiante = ? where IdClase = ? ";
 
 		conexion.consulta(sql);
-		conexion.getSentencia().setInt(1, clase.getCodigoDocente());
-		conexion.getSentencia().setInt(2, clase.getIdSemestre());
-		conexion.getSentencia().setInt(2, clase.getIdClase());
+		conexion.getSentencia().setInt(1, clase.getIdClase());
+		conexion.getSentencia().setInt(2, clase.getCodigoDocente());
+		conexion.getSentencia().setInt(3, clase.getIdSemestre());
+		conexion.getSentencia().setInt(4, clase.getCodigoEstudiante());
+		conexion.getSentencia().setInt(5, clase.getCodigoHorario());
+		conexion.getSentencia().setInt(6, clase.getIdAula());
+
 
 		conexion.modificacion();
 	}
@@ -82,7 +98,7 @@ public class ClasesView {
 		ResultSet resultSet = conexion.resultado();
 		while (resultSet.next()) {
 			clase = new Clase(resultSet.getInt("IdClase"), resultSet.getInt("CodigoDocente"),
-					resultSet.getInt("IdSemestre"), resultSet.getInt("CodigoEstudiante"));
+					resultSet.getInt("IdSemestre"), resultSet.getInt("CodigoEstudiante"), resultSet.getInt("CodigoHorario"),resultSet.getInt("IdAula"));
 			System.out.println(clase);
 		}
 	}

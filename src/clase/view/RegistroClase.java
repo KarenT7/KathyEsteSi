@@ -13,9 +13,10 @@ public class RegistroClase {
 		int codigoDocente=InputTypes.readInt("Ingrese el codigo  del docente :", scanner);
 		int idSemestre=InputTypes.readInt("Ingrese el codigo de identificacion del semestre :", scanner);
 		int CodigoEstudiante=InputTypes.readInt("Ingrese su codigo de Estudiante", scanner);
+        int CodigoHorario=InputTypes.readInt("Ingrese el codigo de su horario", scanner);
+        int IdAula=InputTypes.readInt("Ingrese el codigo de su aula", scanner);
 
-
-		return new Clase(idClase, codigoDocente, idSemestre,CodigoEstudiante);
+		return new Clase(idClase, codigoDocente, idSemestre,CodigoEstudiante, CodigoHorario, IdAula);
 	}
 
 }
