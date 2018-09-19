@@ -108,7 +108,7 @@ public class MenuSemestre {
 				semestre.setModulo(InputTypes.readInt("Ingrese el nuevo modulo: ", scanner));
 				break;
 			case 2:
-				semestre.setAnio(InputTypes.readYear("Ingrese el nuevo anio: ", scanner));
+				semestre.setAnio(InputTypes.readInt("Ingrese el nuevo anio: ", scanner));
 				break;
 			}
 		}

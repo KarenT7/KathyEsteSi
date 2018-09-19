@@ -17,10 +17,10 @@ public class MenuDocente {
 			System.out.println("--------------------------------------");
 			System.out.println("	Ingrese una opcion	: ");
 			System.out.println("--------------------------------------");
-			System.out.println("1.Ingresar Estudiante: ");
-			System.out.println("2.Listar Estudiantes: ");
-			System.out.println("3.Eliminar Estudiante:");
-			System.out.println("4.Modificar Estudiante:");
+			System.out.println("1.Ingresar docente : ");
+			System.out.println("2.Listar docente : ");
+			System.out.println("3.Eliminar docente:");
+			System.out.println("4.Modificar docente:");
 			System.out.println("0.Salir");
 			System.out.println();
 
@@ -41,6 +41,7 @@ public class MenuDocente {
 				break;
 			case 1:
 				docenteV.addDocente();
+				
 				break;
 			case 2:
 				try {
@@ -61,6 +62,7 @@ public class MenuDocente {
 					docenteV.updateDocente();
 				} catch (DocenteSinRegistro e) {
 					e.printStackTrace();
+					break;
 				}
 			}
 		}
@@ -110,10 +112,10 @@ public class MenuDocente {
 				docente.setGradoDeTitulacion(InputTypes.readString("Ingrese el nuevo grado  de titulacion: ", scanner));
 				break;
 			case 5:
-				docente.setNumeroSeguroMedico(InputTypes.readInt("Ingrese el nuevo numero de seguro medico: ", scanner));
+				docente.setSeguroMedico(InputTypes.readInt("Ingrese el nuevo numero de seguro medico: ", scanner));
 				break;
 			case 6:
-				docente.setFechaNacimiento(InputTypes.readInt("Ingrese la nueva fecha de nacimiento: ", scanner));
+				docente.setFechaNacimiento(InputTypes.readDate("Ingrese la nueva fecha de nacimiento: ", scanner));
 				break;
 			case 7:
 				docente.setCelular(InputTypes.readInt("Ingrese el nuevo celular: ", scanner));
