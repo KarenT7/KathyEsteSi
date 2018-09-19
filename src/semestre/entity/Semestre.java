@@ -6,9 +6,9 @@ import java.util.Date;
 public class Semestre {
 	private int idSemestre;
 	private int  modulo;
-	private Year anio;
+	private int anio;
 	
-	public Semestre(int idSemestre, int modulo, Year anio) {
+	public Semestre(int idSemestre, int modulo, int anio) {
 		super();
 		this.idSemestre = idSemestre;
 		this.modulo = modulo;
@@ -31,11 +31,11 @@ public class Semestre {
 		this.modulo = modulo;
 	}
 
-	public Year getAnio() {
+	public int getAnio() {
 		return anio;
 	}
 
-	public void setAnio(Year anio) {
+	public void setAnio(int anio) {
 		this.anio = anio;
 	}
 

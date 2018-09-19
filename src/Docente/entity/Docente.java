@@ -2,12 +2,14 @@ package Docente.entity;
 
 import java.util.Date;
 
+
 public class Docente {
 	private int codigoDocente;
 	private String nombre;
 	private String apellido;
 	private int celular;
 	private Date fechaNacimiento;
+
 	private String gradoDeTitulacion;
 	private int seguroMedico;
 	public Docente(int codigoDocente, String nombre, String apellido, String gradoDeTitulacion, int seguroMedico, int celular,Date fechaNacimiento) {
@@ -68,6 +70,9 @@ public class Docente {
 				+ ", celular=" + celular + ", fechaNacimiento=" + fechaNacimiento + ", gradoDeTitulacion="
 				+ gradoDeTitulacion + ", seguroMedico=" + seguroMedico + "]";
 	}
+
 	
+	
+
 
 }

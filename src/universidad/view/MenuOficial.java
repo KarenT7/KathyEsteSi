@@ -56,7 +56,7 @@ public class MenuOficial {
 	public static void menú(Scanner scanner) throws ClassNotFoundException, SQLException {
 		boolean salir = false;
 		
-		Conexion conexión = new Conexion("root","","universidaddatabase");
+		Conexion conexión = new Conexion("root","","kathy");
 		CarreraView carreraV = new CarreraView(conexión, scanner);
 		SemestreView semestreV = new SemestreView(conexión, scanner);
 		ClasesView claseV = new ClasesView(conexión, scanner);

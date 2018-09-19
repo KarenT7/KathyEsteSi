@@ -1,10 +1,8 @@
 package Horario.view;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import Docente.entity.DocenteSinRegistro;
 import Horario.entity.Horario;
 import Horario.entity.NoExisteClaseEnH;
 import universidad.view.InputTypes;
@@ -63,7 +61,7 @@ public class MenuHorario {
 					try {
 						horarioView.updateHorario();
 					} catch (NoExisteClaseEnH e) {
-						e.printStackTrace();
+				e.printStackTrace();
 					}
 				}
 				break;

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import Docente.entity.DocenteSinRegistro;
+import Estudiante.entity.EstudianteNoRegistrado;
 import Horario.entity.Horario;
 import Horario.entity.NoExisteClaseEnH;
 import universidad.control.Conexion;

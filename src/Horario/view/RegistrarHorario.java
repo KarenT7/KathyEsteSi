@@ -1,24 +1,23 @@
 package Horario.view;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Scanner;
 
 import Horario.entity.Horario;
 import universidad.view.InputTypes;
 
 
-
 public class RegistrarHorario {
 	public static Horario ingresarHorario(Scanner scanner)
 	{
-		int codigoHorario=InputTypes.readInt("Ingrese su codigo de estudiante:", scanner);
-		String paralelo=InputTypes.readString("Nombre:", scanner);
-		int IdClase=InputTypes.readInt("Carnet de Identidad:", scanner);
-		String modalidad=InputTypes.readString("Apellido: ", scanner);
-		Date fechaInicio=(Date) InputTypes.readDate("Fecha de nacimiento:", scanner);
-		Date fechaFinal=(Date) InputTypes.readDate("Telefono:", scanner);
+		int codigoHorario=InputTypes.readInt("Ingrese el codigo del horario:", scanner);
+		String paralelo=InputTypes.readString("Paralelo:", scanner);
+		int idClase=InputTypes.readInt("Codigo de identificacion de la clase:", scanner);
+		String modalidad=InputTypes.readString("Modalidad: ", scanner);
+		Date fechaInicio= InputTypes.readDate("Fecha de inicio:", scanner);
+		Date fechaFinal= InputTypes.readDate("Fecha final:", scanner);
 		
-		return new Horario(codigoHorario, paralelo,IdClase, modalidad, fechaInicio, fechaFinal);
+		return new Horario(codigoHorario, paralelo,idClase, modalidad, fechaInicio, fechaFinal);
 	}
 
 }
