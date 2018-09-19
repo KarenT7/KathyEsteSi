@@ -1,11 +1,10 @@
 package Horario.view;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import Docente.entity.DocenteSinRegistro;
 import Horario.entity.Horario;
+import Horario.entity.NoExisteClaseEnH;
 import universidad.view.InputTypes;
 
 
@@ -58,11 +57,15 @@ public class MenuHorario {
 				}
 				break;
 			case 4:
-				try {
-					horarioView.updateHorario();
-				} catch (DocenteSinRegistro e) {
-					e.printStackTrace();
+				{
+					try {
+						horarioView.updateHorario();
+					} catch (NoExisteClaseEnH e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
+				break;
 			}
 		}
 	}
@@ -110,10 +113,10 @@ public class MenuHorario {
 				horario.setModalidad(InputTypes.readString("Ingrese la nueva modalidad: ", scanner));
 				break;
 			case 5:
-				horario.setFechaInicion((Date) InputTypes.readDate("Ingrese la nueva fecha de inicio: ", scanner));
+				horario.setFechaInicio(InputTypes.readDate("Ingrese la nueva fecha de inicio: ", scanner));
 				break;
 			case 6:
-				horario.setFechaFinal((Date) InputTypes.readDate("Ingrese la nueva fecha de finalizacion: ", scanner));
+				horario.setFechaFinal(InputTypes.readDate("Ingrese la nueva fecha de finalizacion: ", scanner));
 				break;
 				
 			}

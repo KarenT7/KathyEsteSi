@@ -1,55 +1,55 @@
 package Horario.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Horario {
-	private int CodigoHorario;
-	private String Paralelo;
-    private int IdClase;
-    private String Modalidad;
-    private Date fechaInicion;
+	private int codigoHorario;
+	private String paralelo;
+    private int idClase;
+    private String modalidad;
+    private Date fechaInicio;
     private Date fechaFinal;
-	public Horario(int codigoHorario, String paralelo, int idClase, String modalidad, Date fechaInicion,
+	public Horario(int codigoHorario, String paralelo, int idClase, String modalidad, Date fechaInicio,
 			Date fechaFinal) {
 		super();
-		CodigoHorario = codigoHorario;
-		Paralelo = paralelo;
-		IdClase = idClase;
-		Modalidad = modalidad;
-		this.fechaInicion = fechaInicion;
+		this.codigoHorario = codigoHorario;
+		this.paralelo = paralelo;
+		this.idClase = idClase;
+		this.modalidad = modalidad;
+		this.fechaInicio = fechaInicio;
 		this.fechaFinal = fechaFinal;
 	}
 	public int getCodigoHorario() {
-		return CodigoHorario;
+		return codigoHorario;
 	}
 	public void setCodigoHorario(int codigoHorario) {
-		CodigoHorario = codigoHorario;
+		this.codigoHorario = codigoHorario;
 	}
 	public String getParalelo() {
-		return Paralelo;
+		return paralelo;
 	}
 	public void setParalelo(String paralelo) {
-		Paralelo = paralelo;
+		this.paralelo = paralelo;
 	}
 	public int getIdClase() {
-		return IdClase;
+		return idClase;
 	}
 	public void setIdClase(int idClase) {
-		IdClase = idClase;
+		this.idClase = idClase;
 	}
 	public String getModalidad() {
-		return Modalidad;
+		return modalidad;
 	}
 	public void setModalidad(String modalidad) {
-		Modalidad = modalidad;
+		this.modalidad = modalidad;
 	}
-	public Date getFechaInicion() {
-		return fechaInicion;
+	public Date getFechaInicio() {
+		return fechaInicio;
 	}
-	public void setFechaInicion(Date fechaInicion) {
-		this.fechaInicion = fechaInicion;
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
-	public java.sql.Date getFechaFinal() {
+	public Date getFechaFinal() {
 		return fechaFinal;
 	}
 	public void setFechaFinal(Date fechaFinal) {
@@ -57,8 +57,8 @@ public class Horario {
 	}
 	@Override
 	public String toString() {
-		return "Horario [CodigoHorario=" + CodigoHorario + ", Paralelo=" + Paralelo + ", IdClase=" + IdClase
-				+ ", Modalidad=" + Modalidad + ", fechaInicion=" + fechaInicion + ", fechaFinal=" + fechaFinal + "]";
+		return "Horario [codigoHorario=" + codigoHorario + ", paralelo=" + paralelo + ", idClase=" + idClase
+				+ ", modalidad=" + modalidad + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + "]";
 	}
-    
+
 }
