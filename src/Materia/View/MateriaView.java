@@ -21,17 +21,17 @@ public class MateriaView {
 
 	public void addMateria() {
 		Materia materia = RegistrarMateria.ingresarMateria(scanner);
-		String sql = "Insert into materia ( Creditos,Estado,IdCarrera,IdClase) " + "values(?,?,?,?)";
+		String sql = "Insert into materia (CodigoMateria, Creditos, Estado, IdCarrera, IdClase) " + "values(?,?,?,?,?)";
 		try {
 			conexion.consulta(sql);
-			// conexion.getSentencia().setInt(1, materia.getCodigoMateria());
-			conexion.getSentencia().setInt(1, materia.getCreditos());
-			conexion.getSentencia().setString(2, materia.getEstado());
-			conexion.getSentencia().setInt(3, materia.getIdCarrera());
-			conexion.getSentencia().setInt(4, materia.getIdClase());
+			conexion.getSentencia().setInt(1, materia.getCodigoMateria());
+			conexion.getSentencia().setInt(2, materia.getCreditos());
+			conexion.getSentencia().setString(3, materia.getEstado());
+			conexion.getSentencia().setInt(4, materia.getIdCarrera());
+			conexion.getSentencia().setInt(5, materia.getIdClase());
 			conexion.modificacion();
 		} catch (SQLException e) {
-			System.out.println(e.getSQLState());
+			e.getSQLState();
 		}
 	}
 
@@ -46,11 +46,13 @@ public class MateriaView {
 	public void updateMateria() throws SQLException, MateriaNoRegistrada {
 		ResultSet resultSet;
 		Materia materia;
+
 		int creditos;
 		String estado;
 		int idCarrera;
 		int idClase;
-		int codigoMateria = InputTypes.readInt("Código de la materia: ", scanner);
+
+		int codigoMateria = InputTypes.readInt("Ingrese el código de la materia que desee modificar: ", scanner);
 		String sql = "select * from materia where CodigoMateria = ?";
 		conexion.consulta(sql);
 		conexion.getSentencia().setInt(1, codigoMateria);
@@ -68,14 +70,15 @@ public class MateriaView {
 
 		System.out.println(materia);
 		MenuMateria.ModificarMateria(scanner, materia);
-		sql = "update horarios set Creditos = ?, Estado = ?, IdCarrera = ?,  IdClase = ?,  where CodigoMateria = ?";
+		sql = "update horarios set Creditos = ?, Estado = ?, IdCarrera = ?,  IdClase = ?  where CodigoMateria = ?";
 
 		conexion.consulta(sql);
-	//	conexion.getSentencia().setInt(1, materia.getCodigoMateria());
 		conexion.getSentencia().setInt(1, materia.getCreditos());
 		conexion.getSentencia().setString(2, materia.getEstado());
 		conexion.getSentencia().setInt(3, materia.getIdCarrera());
 		conexion.getSentencia().setInt(4, materia.getIdClase());
+		conexion.getSentencia().setInt(5, materia.getCodigoMateria());
+
 		conexion.modificacion();
 	}
 
@@ -86,7 +89,7 @@ public class MateriaView {
 		ResultSet resultSet = conexion.resultado();
 		while (resultSet.next()) {
 			materia = new Materia(resultSet.getInt("CodigoMateria"), resultSet.getInt("Creditos"),
-					resultSet.getString("Estado"), resultSet.getInt("IdClase"), resultSet.getInt("IdCarrera"));
+					resultSet.getString("Estado"), resultSet.getInt("IdCarrera"), resultSet.getInt("IdClase"));
 			System.out.println(materia);
 		}
 	}

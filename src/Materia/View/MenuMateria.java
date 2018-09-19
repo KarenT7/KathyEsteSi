@@ -65,6 +65,7 @@ public class MenuMateria {
 				} catch (MateriaNoRegistrada e) {
 					e.printStackTrace();
 				}
+				break;
 	
 			}
 		}

@@ -20,31 +20,34 @@ public class SemestreView {
 		this.scanner = scanner;
 	}
 
-	public void addSemestre() throws SQLException {
+	public void addSemestre() {
 		Semestre semestre = RegistroSemestre.ingresarSemestre(scanner);
-			String sql = "Insert into Semestre ( Modulo, Año)" + "values(?,?)";
+		String sql = "Insert into semestre ( IdSemestre, Modulo, Año)" + "values(?,?,?)";
+		try {
 			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, semestre.getModulo());
-			conexion.getSentencia().setInt(2,semestre.getAnio());
+			conexion.getSentencia().setInt(1, semestre.getIdSemestre());
+			conexion.getSentencia().setInt(2, semestre.getModulo());
+			conexion.getSentencia().setInt(3, semestre.getAnio());
 			conexion.modificacion();
-			
-			
-}
-	
-		public void deleteSemestre() throws SQLException {
-			int idSemestre = InputTypes.readInt("Código identificacion del semestre: ", scanner);
-			String sql = "delete " + "from semestre " + "where IdSemestre = ?";
-			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, idSemestre);
-			conexion.modificacion();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
-	
+	}
 
-	public void updateSemestre() throws  SQLException {
+	public void deleteSemestre() throws SQLException {
+		int idSemestre = InputTypes.readInt("Código identificacion del semestre: ", scanner);
+		String sql = "delete " + "from semestre " + "where IdSemestre = ?";
+		conexion.consulta(sql);
+		conexion.getSentencia().setInt(1, idSemestre);
+		conexion.modificacion();
+	}
+
+	public void updateSemestre() throws Exception {
 		ResultSet resultSet;
-		Semestre semestre = null ;
-		int  modulo;
+		Semestre semestre;
+		int modulo;
 		int anio;
 		int idSemestre = InputTypes.readInt("Identificacion del semestre: ", scanner);
 		String sql = "select * from semestre where IdSemestre = ?";
@@ -54,9 +57,9 @@ public class SemestreView {
 		if (resultSet.next()) {
 			modulo = resultSet.getInt("Modulo");
 			anio = resultSet.getInt("Año");
-			semestre = new Semestre(idSemestre, modulo , anio);
+			semestre = new Semestre(idSemestre, modulo, anio);
 		} else {
-	//		throw new NoExisteClase();
+			throw new Exception();
 		}
 
 		System.out.println(semestre);
@@ -67,6 +70,8 @@ public class SemestreView {
 		conexion.consulta(sql);
 		conexion.getSentencia().setInt(1, semestre.getModulo());
 		conexion.getSentencia().setInt(2, semestre.getAnio());
+		conexion.getSentencia().setInt(3, semestre.getIdSemestre());
+
 		conexion.modificacion();
 	}
 

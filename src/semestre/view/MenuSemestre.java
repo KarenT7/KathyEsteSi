@@ -6,7 +6,6 @@ import java.util.Scanner;
 import semestre.entity.Semestre;
 import universidad.view.InputTypes;
 
-
 public class MenuSemestre {
 	private static int encabezadoMenuSemestre(Scanner scanner) {
 		int opcion;
@@ -36,17 +35,13 @@ public class MenuSemestre {
 		while (!salir) {
 			switch (encabezadoMenuSemestre(scanner)) {
 			case 0:
-				
+
 				salir = true;
 				break;
 			case 1:
-				try {
-					semestreV.addSemestre();
-				} catch (SQLException e2) {
-					e2.printStackTrace();
-				}
+				semestreV.addSemestre();
 				break;
-		
+
 			case 2:
 				try {
 					semestreV.listarSemestre();
@@ -60,18 +55,14 @@ public class MenuSemestre {
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-			
+				break;
 			case 4:
 				try {
 					semestreV.updateSemestre();
-				} catch (  SQLException e) {
+				} catch (Exception e) {
 					System.out.println("No existe clase!");
 				}
 				break;
-			/*
-			 * case 5:try { claseV.listarClase(); }catch( NoExisteClase e) {
-			 * System.out.println("No existe clase!"); }break;
-			 */
 			}
 		}
 	}

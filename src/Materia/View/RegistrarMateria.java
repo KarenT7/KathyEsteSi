@@ -11,7 +11,7 @@ public class RegistrarMateria {
 	{
 		int codigoMateria=InputTypes.readInt("Ingrese el codigo de la materia:", scanner);
 		int creditos=InputTypes.readInt("Cantidad de creditos:", scanner);
-		String estado=InputTypes.readString("Aprobado/Reprobado/Cursando: ", scanner);
+		String estado=InputTypes.readString("Ingrese el estado -->Aprobado/Reprobado/Cursando: ", scanner);
 		int idCarrera=InputTypes.readInt("Ingrese codigo de la carrera:", scanner);
 		int idCLase=InputTypes.readInt("Ingrese el codigo de la clase:", scanner);
 		
