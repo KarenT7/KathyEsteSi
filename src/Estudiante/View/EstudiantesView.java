@@ -87,7 +87,7 @@ public class EstudiantesView {
 
 		System.out.println(estudiante);
 		MenuEstudiante.ModificarEstudiante(scanner, estudiante);
-		sql = "update estudiante set Nombres = ?, Apellidos = ?, CI = ?, FechaNacimiento = ?, Telefono = ?, Direccion = ?, PAA =? where CodigoEstudiante = ?";
+		sql = "update estudiante set Nombres = ?, Apellidos = ?, Telefono = ?,Direccion = ?,PAA =?,  CI = ?, FechaNacimiento = ? where CodigoEstudiante = ?";
 
 		conexion.consulta(sql);
 		conexion.getSentencia().setInt(1, estudiante.getCodigoEstudiante());

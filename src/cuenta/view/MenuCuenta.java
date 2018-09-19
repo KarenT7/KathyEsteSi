@@ -53,7 +53,7 @@ public class MenuCuenta {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			
+				break;
 			case 4:
 				try {
 					cuentaV.updateCuenta();
@@ -112,6 +112,7 @@ public class MenuCuenta {
 				break;
 			case 5:
 				cuenta.setCodigoEstudiante(InputTypes.readInt("Ingrese el nuevo codigo del estudiante", scanner));
+				break;
 			}
 		}
 	}
