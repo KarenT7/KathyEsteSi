@@ -1,23 +1,24 @@
 package Docente.entity;
 
+import java.util.Date;
+
 public class Docente {
 	private int codigoDocente;
-	private String Nombre;
-	private String Apellido;
-	private int Celular;
-	private int fechaNacimiento;
-	private String GradoDeTitulacion;
-	private int NumeroSeguroMedico;
-	public Docente(int codigoDocente, String nombre, String apellido, int celular, int fechaNacimiento,
-			String gradoDeTitulacion, int numeroSeguroMedico) {
+	private String nombre;
+	private String apellido;
+	private int celular;
+	private Date fechaNacimiento;
+	private String gradoDeTitulacion;
+	private int seguroMedico;
+	public Docente(int codigoDocente, String nombre, String apellido, String gradoDeTitulacion, int seguroMedico, int celular,Date fechaNacimiento) {
 		super();
 		this.codigoDocente = codigoDocente;
-		Nombre = nombre;
-		Apellido = apellido;
-		Celular = celular;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.celular = celular;
 		this.fechaNacimiento = fechaNacimiento;
-		GradoDeTitulacion = gradoDeTitulacion;
-		NumeroSeguroMedico = numeroSeguroMedico;
+		this.gradoDeTitulacion = gradoDeTitulacion;
+		this.seguroMedico = seguroMedico;
 	}
 	public int getCodigoDocente() {
 		return codigoDocente;
@@ -26,47 +27,46 @@ public class Docente {
 		this.codigoDocente = codigoDocente;
 	}
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 	public String getApellido() {
-		return Apellido;
+		return apellido;
 	}
 	public void setApellido(String apellido) {
-		Apellido = apellido;
+		this.apellido = apellido;
 	}
 	public int getCelular() {
-		return Celular;
+		return celular;
 	}
 	public void setCelular(int celular) {
-		Celular = celular;
+		this.celular = celular;
 	}
-	public int getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(int fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getGradoDeTitulacion() {
-		return GradoDeTitulacion;
+		return gradoDeTitulacion;
 	}
 	public void setGradoDeTitulacion(String gradoDeTitulacion) {
-		GradoDeTitulacion = gradoDeTitulacion;
+		this.gradoDeTitulacion = gradoDeTitulacion;
 	}
-	public int getNumeroSeguroMedico() {
-		return NumeroSeguroMedico;
+	public int getSeguroMedico() {
+		return seguroMedico;
 	}
-	public void setNumeroSeguroMedico(int numeroSeguroMedico) {
-		NumeroSeguroMedico = numeroSeguroMedico;
+	public void setSeguroMedico(int seguroMedico) {
+		this.seguroMedico = seguroMedico;
 	}
-	
 	@Override
 	public String toString() {
-		return "Docente [codigoDocente=" + codigoDocente + ", Nombre=" + Nombre + ", Apellido=" + Apellido
-				+ ", Celular=" + Celular + ", fechaNacimiento=" + fechaNacimiento + ", GradoDeTitulacion="
-				+ GradoDeTitulacion + ", NumeroSeguroMedico=" + NumeroSeguroMedico + "]";
+		return "Docente [codigoDocente=" + codigoDocente + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", celular=" + celular + ", fechaNacimiento=" + fechaNacimiento + ", gradoDeTitulacion="
+				+ gradoDeTitulacion + ", seguroMedico=" + seguroMedico + "]";
 	}
 	
 

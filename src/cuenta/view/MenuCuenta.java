@@ -38,11 +38,7 @@ public class MenuCuenta {
 				salir = true;
 				break;
 			case 1:
-				try {
-					cuentaV.addCuenta();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				cuentaV.addCuenta();
 				break;
 			case 2:
 				try {
@@ -106,16 +102,13 @@ public class MenuCuenta {
 				cuenta.setSaldoApagar(InputTypes.readDouble("Ingrese el nuevo saldo a pagar: ", scanner));
 				break;
 			case 2:
-				cuenta.setImportePagado(
-						InputTypes.readDouble("Ingrese el nuevo Importe Pagado: ", scanner));
+				cuenta.setImportePagado(InputTypes.readDouble("Ingrese el nuevo Importe Pagado: ", scanner));
 				break;
 			case 3:
-				cuenta.setDescuentoBeca(
-						InputTypes.readDouble("Ingrese el nuevo descuento por Beca: ", scanner));
+				cuenta.setDescuentoBeca(InputTypes.readDouble("Ingrese el nuevo descuento por Beca: ", scanner));
 				break;
 			case 4:
-				cuenta.setPlanDePagos(
-						InputTypes.readString("Ingrese el nuevo plan de Pagos: ", scanner));
+				cuenta.setPlanDePagos(InputTypes.readString("Ingrese el nuevo plan de Pagos: ", scanner));
 				break;
 			case 5:
 				cuenta.setCodigoEstudiante(InputTypes.readInt("Ingrese el nuevo codigo del estudiante", scanner));

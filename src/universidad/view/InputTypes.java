@@ -90,12 +90,5 @@ public class InputTypes {
 
 		return valor;
 	}
-	public static Year readYear(String msg, Scanner leer) {
-		Year Año = null;
-		while (true) {
-			System.out.print(msg);
-			return Año.parse(leer.nextLine());
-		}
-	}
-
+	
 }

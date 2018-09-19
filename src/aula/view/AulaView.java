@@ -21,9 +21,10 @@ public class AulaView {
 
 	public void addAula() throws SQLException {
 		Aula aula = RegistroAula.ingresarAula(scanner);
-			String sql = "Insert into aula ( IdClase)" + "values(?)";
+			String sql = "Insert into aula (IdAula, IdClase)" + "values(?,?)";
 			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, aula.getIdClase());
+			conexion.getSentencia().setInt(1, aula.getIdAula());
+			conexion.getSentencia().setInt(2, aula.getIdClase());
 			conexion.modificacion();
 
 }
@@ -57,10 +58,11 @@ public class AulaView {
 		System.out.println(aula);
 		MenuAula.menuModificar(scanner, aula);
 
-		sql = "update aula set IdClase = ?,   where IdAula = ?";
+		sql = "update aula set IdClase = ?   where IdAula = ?";
 
 		conexion.consulta(sql);
-		conexion.getSentencia().setInt(1, aula.getIdClase());
+		conexion.getSentencia().setInt(1, aula.getIdAula());
+		conexion.getSentencia().setInt(2, aula.getIdClase());
 		conexion.modificacion();
 	}
 

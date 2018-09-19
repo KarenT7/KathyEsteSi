@@ -20,28 +20,31 @@ public class CuentaView {
 		this.scanner = scanner;
 	}
 
-	public void addCuenta() throws SQLException {
+	public void addCuenta()   {
 		Cuenta cuenta = RegistroCuenta.ingresarCuenta(scanner);
-			String sql = "Insert into cuenta( SaldoPagar, ImportePagado, DescuentoBeca, PlanDePagos, CodigoEstudiante)" + "values(?,?,?,?,?)";
-			
+		String sql = "Insert into cuenta( CodigoCuenta,SaldoPagar, ImportePagado, DescuentoBeca, PlanDePagos, CodigoEstudiante)" + "values(?,?,?,?,?,?)";
+		try {
 			conexion.consulta(sql);
-			conexion.getSentencia().setDouble(1, cuenta.getSaldoApagar());
-			conexion.getSentencia().setDouble(2, cuenta.getImportePagado());
-			conexion.getSentencia().setDouble(3, cuenta.getDescuentoBeca());
-			conexion.getSentencia().setString(4, cuenta.getPlanDePagos());
-			conexion.getSentencia().setInt(5, cuenta.getCodigoEstudiante());
+			conexion.getSentencia().setDouble(1, cuenta.getCodigoCuenta());
+			conexion.getSentencia().setDouble(2, cuenta.getSaldoApagar());
+			conexion.getSentencia().setDouble(3, cuenta.getImportePagado());
+			conexion.getSentencia().setDouble(4, cuenta.getDescuentoBeca());
+			conexion.getSentencia().setString(5, cuenta.getPlanDePagos());
+			conexion.getSentencia().setInt(6, cuenta.getCodigoEstudiante());
+			conexion.modificacion();
 
-			conexion.modificacion();
-			
-}
-	
-		public void deleteCuenta() throws SQLException {
-			int codigoCuenta = InputTypes.readInt("Código identificacion de la cuenta: ", scanner);
-			String sql = "delete " + "from cuenta " + "where CodigoCuenta = ?";
-			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, codigoCuenta);
-			conexion.modificacion();
+		} catch (SQLException e) {			e.printStackTrace();
 		}
+
+	}
+
+	public void deleteCuenta() throws SQLException {
+		int codigoCuenta = InputTypes.readInt("Código identificacion de la cuenta: ", scanner);
+		String sql = "delete " + "from cuenta " + "where CodigoCuenta = ?";
+		conexion.consulta(sql);
+		conexion.getSentencia().setInt(1, codigoCuenta);
+		conexion.modificacion();
+	}
 
 
 	public void updateCuenta() throws NoExisteCuenta, SQLException {
@@ -63,7 +66,7 @@ public class CuentaView {
 			descuentoBeca = resultSet.getDouble("DescuentoBeca");
 			planDePagos = resultSet.getString("PlanDePagos");
 			CodigoEstudiante= resultSet.getInt("CodigoEstudiante");
-			
+
 			cuenta = new Cuenta(codigoCuenta, saldoApagar , importePagado, descuentoBeca, planDePagos, CodigoEstudiante);
 		} else {
 			throw new NoExisteCuenta();
@@ -72,14 +75,16 @@ public class CuentaView {
 		System.out.println(cuenta);
 		MenuCuenta.menuModificar(scanner, cuenta);
 
-		sql = "update cuenta set SaldoPagar = ?, ImportePagado = ?, DescuentoBeca = ?, PlanDePagos = ?, CodigoEstudiante=?,  where CodigoCuenta = ? ";
+		sql = "update cuenta set SaldoPagar = ?, ImportePagado = ?, DescuentoBeca = ?, PlanDePagos = ?, CodigoEstudiante=?  where CodigoCuenta = ? ";
 
 		conexion.consulta(sql);
-		conexion.getSentencia().setDouble(1, cuenta.getSaldoApagar());
-		conexion.getSentencia().setDouble(2, cuenta.getImportePagado());
-		conexion.getSentencia().setDouble(3, cuenta.getDescuentoBeca());
-		conexion.getSentencia().setString(4, cuenta.getPlanDePagos());
-		conexion.getSentencia().setInt(5, cuenta.getCodigoEstudiante());
+		conexion.getSentencia().setDouble(1, cuenta.getCodigoCuenta());
+		conexion.getSentencia().setDouble(2, cuenta.getSaldoApagar());
+		conexion.getSentencia().setDouble(3, cuenta.getImportePagado());
+		conexion.getSentencia().setDouble(4, cuenta.getDescuentoBeca());
+		conexion.getSentencia().setString(5, cuenta.getPlanDePagos());
+		conexion.getSentencia().setInt(6, cuenta.getCodigoEstudiante());
+
 
 		conexion.modificacion();
 	}

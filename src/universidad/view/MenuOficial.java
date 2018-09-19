@@ -32,13 +32,13 @@ public class MenuOficial {
 			System.out.println("1. Estudiante");
 			System.out.println("2. Cuenta del Estudiante");
 			System.out.println("3. Transporte del Estudiante ");
-			System.out.println("4. Semestre ");
+			System.out.println("4. Docente  ");
 			System.out.println("5. Carrera ");
 			System.out.println("6. Clase ");
 			System.out.println("7. Materia ");
 			System.out.println("8. Aula ");
 			System.out.println("9. Horarios ");
-			System.out.println("10. Docente ");
+			System.out.println("10. Semestre ");
 			System.out.println("11. Registro de notas y faltas ");
 			
 			System.out.println("0. Salir");
@@ -83,7 +83,7 @@ public class MenuOficial {
 			case 3:
 				Transporte.view.MenuTransporte.menuTransporte(scanner, transporteV);
 				break;
-			case 4:
+			case 10:
 				semestre.view.MenuSemestre.menuSemestre(scanner, semestreV);
 				break;
 			case 5:
@@ -101,7 +101,7 @@ public class MenuOficial {
 			case 9:
 				Horario.view.MenuHorario.menuHorario(scanner, horarioV);
 				break;
-			case 10:
+			case 4:
 				Docente.View.MenuDocente.menuDocente(scanner, docenteV);
 				break;
 			case 11:
