@@ -21,19 +21,19 @@ public class AulaView {
 
 	public void addAula() throws SQLException {
 		Aula aula = RegistroAula.ingresarAula(scanner);
-			String sql = "Insert into aula (IdAula, IdClase)" + "values(?,?)";
+			String sql = "Insert into aula (IdAula, NumeroAula)" + "values(?,?)";
 			conexion.consulta(sql);
 			conexion.getSentencia().setInt(1, aula.getIdAula());
-			conexion.getSentencia().setInt(2, aula.getIdClase());
+			conexion.getSentencia().setInt(2, aula.getNumeroAula());
 			conexion.modificacion();
 
 }
 	
 		public void deleteAula() throws SQLException {
-			int idClase = InputTypes.readInt("Código identificacion del aula: ", scanner);
+			int IdAula = InputTypes.readInt("Código identificacion del aula: ", scanner);
 			String sql = "delete " + "from aula " + "where IdAula = ?";
 			conexion.consulta(sql);
-			conexion.getSentencia().setInt(1, idClase);
+			conexion.getSentencia().setInt(1, IdAula);
 			conexion.modificacion();
 
 		}
@@ -43,15 +43,15 @@ public class AulaView {
 	public void updateAula() throws SQLException {
 		ResultSet resultSet;
 		Aula aula = null;
-		int  idClase;
+		int  NumeroAula;
 		int idAula = InputTypes.readInt("Identificacion del Código del aula: ", scanner);
 		String sql = "select * from aula where IdAula = ?";
 		conexion.consulta(sql);
 		conexion.getSentencia().setInt(1, idAula);
 		resultSet = conexion.resultado();
 		if (resultSet.next()) {
-			idClase = resultSet.getInt("IdClase");
-			aula = new Aula(idAula, idClase );
+			NumeroAula = resultSet.getInt("NumeroAula");
+			aula = new Aula(idAula, NumeroAula );
 		} else {
 		}
 
@@ -62,7 +62,8 @@ public class AulaView {
 
 		conexion.consulta(sql);
 		conexion.getSentencia().setInt(1, aula.getIdAula());
-		conexion.getSentencia().setInt(2, aula.getIdClase());
+		conexion.getSentencia().setInt(2, aula.getNumeroAula());
+
 		conexion.modificacion();
 	}
 
@@ -72,7 +73,7 @@ public class AulaView {
 		conexion.consulta(sql);
 		ResultSet resultSet = conexion.resultado();
 		while (resultSet.next()) {
-			aula = new Aula(resultSet.getInt("IdAula"), resultSet.getInt("IdClase"));
+			aula = new Aula(resultSet.getInt("IdAula"), resultSet.getInt("NumeroAula"));
 			System.out.println(aula);
 		}
 	}

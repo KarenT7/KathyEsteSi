@@ -17,7 +17,6 @@ public class MenuAula {
 			System.out.println("2.Listar Aula: ");
 			System.out.println("3.Eliminar Aula:");
 			System.out.println("4. Modificar Aula ");
-			// System.out.println("5. Productos por Categoría ");
 			System.out.println("0.Salir");
 			System.out.println();
 
@@ -57,7 +56,7 @@ public class MenuAula {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			
+			  break;
 			case 4:
 				try {
 					aulaV.updateAula();
@@ -65,10 +64,7 @@ public class MenuAula {
 					System.out.println("No existe clase!");
 				}
 				break;
-			/*
-			 * case 5:try { claseV.listarClase(); }catch( NoExisteClase e) {
-			 * System.out.println("No existe clase!"); }break;
-			 */
+		
 			}
 		}
 	}
@@ -83,12 +79,14 @@ public class MenuAula {
 			System.out.println("	Ingrese una opcion	: ");
 			System.out.println("--------------------------------------");
 			System.out.println("1. Modificar codigo de identificacion del aula ");
+			System.out.println("2. Modificar numero de  aula ");
+
 			System.out.println("0. Salir");
 			System.out.println();
 
 			opcion = InputTypes.readInt("¿Su opción? ", scanner);
 
-			if (opcion >= 0 && opcion <= 1) {
+			if (opcion >= 0 && opcion <= 2) {
 				return opcion;
 			}
 		}
@@ -103,7 +101,10 @@ public class MenuAula {
 				salir = true;
 				break;
 			case 1:
-				aula.setIdClase(InputTypes.readInt("Ingrese el nuevo codigo de identificacion del aula: ", scanner));
+				aula.setIdAula(InputTypes.readInt("Ingrese el nuevo ID del aula: ", scanner));
+				break;
+			case 2:
+				aula.setNumeroAula(InputTypes.readInt("Ingrese el nuevo numero de aula: ", scanner));
 				break;
 		
 			}

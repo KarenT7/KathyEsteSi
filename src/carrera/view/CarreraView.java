@@ -19,14 +19,23 @@ public class CarreraView {
 		this.scanner = scanner;
 	}
 
-	public void addCarrera() throws SQLException {
+	public void addCarrera()  {
 		Carrera carrera = RegistroCarrera.ingresarCarrera(scanner);
-		String sql = "Insert into carrera (JefeDeCarrera, Nombre )" + "values(?,?)";
+		String sql = "Insert into carrera (IdCarrera,JefeDeCarrera, Nombre )" + "values(?,?,?)";
+		try {
 		conexion.consulta(sql);
-		conexion.getSentencia().setString(1, carrera.getJefeDeCarrera());
-		conexion.getSentencia().setString(2, carrera.getNombreCarrera());
+		conexion.getSentencia().setInt(1, carrera.getIdCarrera());
 
-		conexion.modificacion();			
+		conexion.getSentencia().setString(2, carrera.getJefeDeCarrera());
+
+		conexion.getSentencia().setString(3, carrera.getNombreCarrera());
+
+		conexion.modificacion();
+	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	public void deleteCarrera() throws SQLException {
@@ -62,11 +71,14 @@ public class CarreraView {
 		System.out.println(carrera);
 		MenuCarrera.menuModificar(scanner, carrera);
 
-		sql = "update carrera set JefeDeCarrera=?, Nombre = ?, where IdCarrera = ?";
+		sql = "update carrera set JefeDeCarrera=?, Nombre = ? where IdCarrera = ?";
 
 		conexion.consulta(sql);
-		conexion.getSentencia().setString(1, carrera.getNombreCarrera());
+		conexion.getSentencia().setInt(1, carrera.getIdCarrera());
+
 		conexion.getSentencia().setString(2, carrera.getJefeDeCarrera());
+
+		conexion.getSentencia().setString(3, carrera.getNombreCarrera());
 
 		conexion.modificacion();
 	}

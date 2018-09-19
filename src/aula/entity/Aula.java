@@ -2,32 +2,28 @@ package aula.entity;
 
 public class Aula {
 	private int  idAula;	
-	private int idClase;
-
-	public Aula(int idAula, int idClase) {
+	private int NumeroAula;
+	public Aula(int idAula, int numeroAula) {
 		super();
 		this.idAula = idAula;
-		this.idClase = idClase;
+		NumeroAula = numeroAula;
 	}
-
 	public int getIdAula() {
 		return idAula;
 	}
-
 	public void setIdAula(int idAula) {
 		this.idAula = idAula;
 	}
-
-	public int getIdClase() {
-		return idClase;
+	public int getNumeroAula() {
+		return NumeroAula;
 	}
-
-	public void setIdClase(int idClase) {
-		this.idClase = idClase;
+	public void setNumeroAula(int numeroAula) {
+		NumeroAula = numeroAula;
 	}
 	@Override
 	public String toString() {
-		return "Aula [idAula=" + idAula + ", idClase=" + idClase + "]";
+		return "Aula [idAula=" + idAula + ", NumeroAula=" + NumeroAula + "]";
 	}
+
 
 }

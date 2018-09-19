@@ -9,7 +9,7 @@ public class RegistroCarrera {
 	public static Carrera ingresarCarrera(Scanner scanner)
 	{
 	
-		int idCarrera=InputTypes.readInt("Ingrese su codigo de identificacion de la clase :", scanner);
+		int idCarrera=InputTypes.readInt("Ingrese su codigo de identificacion de la carrera :", scanner);
 		String nombre=InputTypes.readString("Ingrese el nombre de la carrera:", scanner);
         String JefeDeCarrera=InputTypes.readString("Ingrese el nombre del jefe de a carrera: ", scanner);
 

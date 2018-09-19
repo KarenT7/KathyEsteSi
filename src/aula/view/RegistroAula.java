@@ -10,7 +10,7 @@ public class RegistroAula {
 	{
 	
 		int idAula=InputTypes.readInt("Ingrese el codigo de identificacion del aula :", scanner);
-		int idClase=InputTypes.readInt("Ingrese el codigo de identificacion de la clase :", scanner);
+		int idClase=InputTypes.readInt("Ingrese el numero del aula :", scanner);
 
 		return new Aula(idAula, idClase);
 	}
