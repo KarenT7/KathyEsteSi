@@ -64,6 +64,7 @@ public class MenuEstudiante {
 				} catch (EstudianteNoRegistrado e) {
 					e.printStackTrace();
 				}
+				break;
 			}
 		}
 	}
